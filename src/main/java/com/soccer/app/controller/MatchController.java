@@ -27,27 +27,29 @@ public class MatchController {
                 .body(matchService.addMatch(m));
     }
 
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<MatchModel> getAllMatches() {
-        return null;
+        return matchService.getAllMatches();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public MatchModel getMatchById(@PathVariable Long id) {
-        return null;
+        return matchService.getMatchById(id);
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public MatchModel updateMatch(@RequestBody MatchModel m) {
-        return null;
+        return matchService.updateMatch(m);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteMatchById(@PathVariable Long id) {
+
         matchService.deleteMatchById(id);
     }
 }
