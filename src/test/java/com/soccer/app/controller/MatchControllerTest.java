@@ -29,7 +29,6 @@ class MatchControllerTest {
     @Test
     void getAllMatches() throws Exception {
         mockMvc.perform(get("/api/matches"))
-                .
-                .andExpect(status().is2xxSuccessful());
+                 .andExpect(status().is2xxSuccessful());
     }
 }

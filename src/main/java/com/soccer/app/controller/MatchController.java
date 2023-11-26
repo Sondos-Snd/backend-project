@@ -18,6 +18,11 @@ public class MatchController {
     @Autowired
     private MatchService matchService;
 
+    @GetMapping("test")
+    public String helloUser() {
+        return "Hello User";
+    }
+
 
     @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
@@ -27,29 +32,27 @@ public class MatchController {
                 .body(matchService.addMatch(m));
     }
 
-
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<MatchModel> getAllMatches() {
-        return matchService.getAllMatches();
+        return null;
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public MatchModel getMatchById(@PathVariable Long id) {
-        return matchService.getMatchById(id);
+        return null;
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public MatchModel updateMatch(@RequestBody MatchModel m) {
-        return matchService.updateMatch(m);
+        return null;
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteMatchById(@PathVariable Long id) {
-
         matchService.deleteMatchById(id);
     }
 }

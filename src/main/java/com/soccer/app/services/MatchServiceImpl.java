@@ -12,25 +12,11 @@ import java.util.List;
 @Slf4j
 public class MatchServiceImpl implements MatchService {
 
-
-    @Autowired
-    private MatchRepository matchRepo;
-
-    @Override
-    public List<MatchModel> getAllMatches() {
-        return matchRepo.findAll();
-    }
-
-    @Override
-    public MatchModel getMatchById(Long id) {
-        Optional<MatchModel> m = matchRepo.findById(id);
-        return m.isPresent() ? m.get() : null;
-    }
-
+    private final MatchRepository matchRepository;
     @Override
     public void deleteMatchById(Long id) {
         try{
-            matchRepo.deleteById(id);
+            matchRepository.deleteById(id);
         }catch(Exception e){
             log.error("sthg happned");
         }
@@ -39,12 +25,6 @@ public class MatchServiceImpl implements MatchService {
 
     @Override
     public MatchModel addMatch(MatchModel m) {
-        return matchRepo.save(m);
+        return matchRepository.save(m);
     }
-
-    @Override
-    public MatchModel updateMatch(MatchModel m) {
-        return matchRepo.save(m);
-    }
-
 }

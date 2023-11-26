@@ -5,13 +5,7 @@ import com.soccer.app.model.MatchModel;
 import java.util.List;
 
 public interface MatchService {
-    public List<MatchModel> getAllMatches();
+    MatchModel addMatch(MatchModel m);
 
-    public MatchModel getMatchById(Long id);
-
-    public void deleteMatchById(Long id);
-
-    public MatchModel addMatch(MatchModel m);
-
-    public MatchModel updateMatch(MatchModel m);
+    void deleteMatchById(Long id);
 }
